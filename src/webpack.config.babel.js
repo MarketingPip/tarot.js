@@ -2,10 +2,18 @@
 import fs from 'fs';
 import path from 'path';
 
+import { fileURLToPath } from 'url';
+
 import packageData from './license.config.js';
 
 import TerserPlugin from 'terser-webpack-plugin';
- 
+
+
+
+// Create __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 class AddLicenseAfterTerserPlugin {
     constructor(options) {
         this.options = options;
@@ -55,11 +63,11 @@ class RemoveLicenseFilePlugin {
 }
 
 
-module.exports = {
+const config  = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
-    filename: packageData.FILENAME,
+    filename: packageData.FILENAME  + ".min.js",
     library: {
       type: 'module',
     },
@@ -93,3 +101,4 @@ module.exports = {
     extensions: ['.js'],
   },
 };
+export default config; // Use export default to export the config
