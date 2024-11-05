@@ -55,7 +55,7 @@ class RemoveLicenseFilePlugin {
 }
 
 
-module.exports = {
+const config  = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
@@ -93,3 +93,4 @@ module.exports = {
     extensions: ['.js'],
   },
 };
+export default config; // Use export default to export the config
