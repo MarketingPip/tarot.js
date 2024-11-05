@@ -67,7 +67,7 @@ const config  = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
-    filename: packageData.FILENAME,
+    filename: packageData.FILENAME  + ".min.js",
     library: {
       type: 'module',
     },
