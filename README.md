@@ -10,6 +10,58 @@
 - **Current Spread Tracking**: View the most recent spread and cards drawn for a convenient reference.
 - **Detailed Deck Information**: Retrieve full deck details, including card counts and each card’s metadata.
 
+
+## Example and usage
+
+You can view a demo of Tarot.js in use [here](https://marketingpipeline.github.io/Tarot.js/demo).
+
+How to use **_Tarot.js_**:
+
+```javascript
+import Tarot from "https://esm.sh/gh/MarketingPip/tarot.js";
+
+// Load a existing tarot deck via ES6 assert import or via fetch etc... 
+import englishDeck from "https://esm.sh/gh/MarketingPip/tarot.js/decks/english.json" assert { type: "json" }; 
+
+const tarot = new Tarot();
+
+tarot.initializeDeck(englishDeck);
+
+tarot.addSpread("simple", {
+  positions: ["Past", "Present", "Future"],
+  description: "Basic three-card spread"
+});
+
+console.log(tarot.doReading("simple"));
+
+// Make your own "decks"
+const your_own_custom_deck = tarot.initializeDeck([
+  {
+    name: "The Fool",
+    meaning: "New beginnings, innocence",
+    whatever_key_names_you_want: "l33t"
+  },
+  {
+    name: "The Coder",
+    meaning: "Tired, broke, curious",
+    whatever_values_you_want: ["dope"]
+  }
+  /* Add more card objects as needed. 
+     Note: Objects must match positions in your spread.
+   */
+]);
+
+// Add your custom spread
+tarot.addSpread("shakespeare", {
+  positions: ["To be", "Not to be"],
+  description: "Random example spread"
+});
+
+console.log(tarot.doReading("shakespeare")); 
+```
+
+For more advanced usage you can find the Tarot.js documentation [here](https://github.com/MarketingPipeline/Tarot.js/wiki).  
+
 ## Getting Started
 
 Here’s a quick guide to get started with Tarot.js:
