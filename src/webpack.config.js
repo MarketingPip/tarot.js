@@ -2,7 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import packageData from './license.config.js';
+import * as packageData from './license.config.js';
 
 import TerserPlugin from 'terser-webpack-plugin';
  
