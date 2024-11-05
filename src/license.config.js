@@ -19,4 +19,4 @@ const FILENAME = "emoji-fallback"; // used for output file name
 
 const packageCONFIG = {LICENSE,FILENAME};
 
-module.exports = packageCONFIG
+export default packageCONFIG;
