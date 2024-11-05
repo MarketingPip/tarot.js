@@ -1,4 +1,4 @@
- class Tarot {
+ export class Tarot {
   constructor() {
     this.deck = [];
     this.currentSpread = [];
