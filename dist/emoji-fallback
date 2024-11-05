@@ -1,0 +1,184 @@
+/**!
+ * @license Emoji-Fallback.js - A pure vanilla JavaScript library for EASILY parsing M3U / IPTV
+ * VERSION: 1.0.0
+ * LICENSED UNDER MIT LICENSE
+ * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/Emoji-Fallback.js/
+ */ var __webpack_exports__ = {};
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var Tarot = /*#__PURE__*/(/* unused pure expression or super */ null && (function () {
+  function Tarot() {
+    _classCallCheck(this, Tarot);
+    this.deck = [];
+    this.currentSpread = [];
+    this.customSpreads = new Map();
+    this.isInitialized = false;
+  }
+
+  // Initialize the deck with cards
+  return _createClass(Tarot, [{
+    key: "initializeDeck",
+    value: function initializeDeck(cards) {
+      if (!Array.isArray(cards) || cards.length === 0) {
+        throw new Error('Cards must be provided as a non-empty array');
+      }
+
+      // Validate that all items are TarotCard instances
+      cards.forEach(function (card, index) {
+        if (_typeof(card) !== 'object' || Array.isArray(card)) {
+          throw new Error("Item at index ".concat(index, " is not a valid TarotCard item. Must be a JSON object."));
+        }
+        // Additional checks for TarotCard properties can be added here
+      });
+      this.deck = cards;
+      this.isInitialized = true;
+      return this.deck;
+    }
+
+    // Validate deck is initialized before operations
+  }, {
+    key: "validateDeckInitialized",
+    value: function validateDeckInitialized() {
+      if (!this.isInitialized || this.deck.length === 0) {
+        throw new Error('Deck not initialized. Call initializeDeck() with cards first');
+      }
+    }
+
+    // Validate spread exists
+  }, {
+    key: "validateSpreadExists",
+    value: function validateSpreadExists(name) {
+      if (!this.customSpreads.has(name)) {
+        throw new Error("Spread \"".concat(name, "\" not found. Add it using addSpread() first"));
+      }
+    }
+
+    // Add a custom spread
+  }, {
+    key: "addSpread",
+    value: function addSpread(name, _ref) {
+      var positions = _ref.positions,
+        _ref$description = _ref.description,
+        description = _ref$description === void 0 ? null : _ref$description;
+      if (typeof name !== 'string' || name.trim().length === 0) {
+        throw new Error('Spread name must be a non-empty string');
+      }
+      if (!Array.isArray(positions) || positions.length === 0) {
+        throw new Error('Positions must be a non-empty array of position names');
+      }
+      positions.forEach(function (position, index) {
+        if (typeof position !== 'string' || position.trim().length === 0) {
+          throw new Error("Position at index ".concat(index, " must be a non-empty string"));
+        }
+      });
+      var spreadConfig = {
+        positions: positions,
+        description: description,
+        cardCount: positions.length
+      };
+      this.customSpreads.set(name, spreadConfig);
+      return spreadConfig;
+    }
+
+    // Remove a spread
+  }, {
+    key: "removeSpread",
+    value: function removeSpread(name) {
+      this.validateSpreadExists(name);
+      this.customSpreads["delete"](name);
+    }
+
+    // Get spread information
+  }, {
+    key: "getSpreadInfo",
+    value: function getSpreadInfo(name) {
+      this.validateSpreadExists(name);
+      return this.customSpreads.get(name);
+    }
+
+    // List all spreads
+  }, {
+    key: "listSpreads",
+    value: function listSpreads() {
+      return Array.from(this.customSpreads.keys());
+    }
+
+    // Draw cards for a spread
+  }, {
+    key: "drawCards",
+    value: function drawCards(count) {
+      this.validateDeckInitialized();
+      if (count > this.deck.length) {
+        throw new Error("Cannot draw ".concat(count, " cards. Only ").concat(this.deck.length, " cards available"));
+      }
+      var tempDeck = _toConsumableArray(this.deck);
+      for (var i = tempDeck.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var _ref2 = [tempDeck[j], tempDeck[i]];
+        tempDeck[i] = _ref2[0];
+        tempDeck[j] = _ref2[1];
+      }
+      return tempDeck.slice(0, count);
+    }
+
+    // Perform a reading
+  }, {
+    key: "doReading",
+    value: function doReading(spreadName) {
+      this.validateDeckInitialized();
+      this.validateSpreadExists(spreadName);
+      var spread = this.customSpreads.get(spreadName);
+      var cards = this.drawCards(spread.cardCount);
+      this.currentSpread = spread.positions.map(function (position, index) {
+        return {
+          position: position,
+          card: cards[index]
+        };
+      });
+      return this.currentSpread;
+    }
+
+    // Get current spread
+  }, {
+    key: "getCurrentSpread",
+    value: function getCurrentSpread() {
+      return this.currentSpread;
+    }
+
+    // Shuffle the deck
+  }, {
+    key: "shuffleDeck",
+    value: function shuffleDeck() {
+      this.validateDeckInitialized();
+      for (var i = this.deck.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var _ref3 = [this.deck[j], this.deck[i]];
+        this.deck[i] = _ref3[0];
+        this.deck[j] = _ref3[1];
+      }
+    }
+
+    // Get deck information
+  }, {
+    key: "getDeckInfo",
+    value: function getDeckInfo() {
+      this.validateDeckInitialized();
+      return {
+        cardCount: this.deck.length,
+        cards: this.deck.map(function (card) {
+          return card;
+        })
+      };
+    }
+  }]);
+}()));
