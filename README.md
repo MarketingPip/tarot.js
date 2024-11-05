@@ -137,8 +137,11 @@ Here’s the corrected and standardized Markdown format:
 
 - **Description**: Initializes the deck with a provided array of card objects.
 - **Parameters**:
-  - `cards` (Array<Object>): Array of Tarot `"cards"`, each with properties like `name` and `meaning`.
-- **Returns**: Array of initialized cards.
+  - `cards` (Array\<Object\>): Array of Tarot `"cards"`, each with properties like `name` and `meaning`.
+  - `options` (Object): Spread settings.
+    - `positions` (Array<string>): An array defining positions in the spread.
+    - `description` (string, optional): Brief description of the spread.
+- **Returns**: The configured spread object.
 
 ---
 
