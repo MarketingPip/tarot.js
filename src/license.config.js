@@ -14,7 +14,7 @@ const LICENSE = `/**!
  * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/${REPONAME}/
  */`;
 
-const FILENAME = "emoji-fallback"; // used for output file name
+const FILENAME = "tarot"; // used for output file name
 
 const packageCONFIG = {LICENSE,FILENAME};
 
