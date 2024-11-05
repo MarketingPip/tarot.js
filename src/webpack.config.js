@@ -86,6 +86,13 @@ module.exports = {
             presets: ['@babel/preset-env'],
           },
         },
+        query: {
+        babelrc: false,
+        presets: [
+            ['es2015', { modules: false }],
+        ],
+    },
+  
       },
     ],
   },
