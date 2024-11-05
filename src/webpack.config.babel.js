@@ -80,9 +80,7 @@ const config  = {
       extractComments: false,
     })],
   },
-  plugins: [new RemoveLicenseFilePlugin(),  new AddLicenseAfterTerserPlugin({
-            // Additional options can be passed here if needed
-        })],
+  plugins: [],
   module: {
     rules: [
       {
