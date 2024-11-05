@@ -1,10 +1,11 @@
 // webpack.config.js
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const packageData = require('./license.config.js');
+import packageData from './license.config.js';
 
-const TerserPlugin = require('terser-webpack-plugin');
+import TerserPlugin from 'terser-webpack-plugin';
+
 
 class AddLicenseAfterTerserPlugin {
     constructor(options) {
