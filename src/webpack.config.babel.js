@@ -2,10 +2,18 @@
 import fs from 'fs';
 import path from 'path';
 
+import { fileURLToPath } from 'url';
+
 import packageData from './license.config.js';
 
 import TerserPlugin from 'terser-webpack-plugin';
- 
+
+
+
+// Create __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 class AddLicenseAfterTerserPlugin {
     constructor(options) {
         this.options = options;
