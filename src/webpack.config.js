@@ -5,8 +5,7 @@ import path from 'path';
 import packageData from './license.config.js';
 
 import TerserPlugin from 'terser-webpack-plugin';
-
-
+ 
 class AddLicenseAfterTerserPlugin {
     constructor(options) {
         this.options = options;
@@ -87,7 +86,9 @@ module.exports = {
             presets: ['@babel/preset-env'],
           },
         },
-     
+      },
+    ],
+  },
   resolve: {
     extensions: ['.js'],
   },
