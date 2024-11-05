@@ -903,19 +903,18 @@
         ],
         "description": "The Knight of Pentacles represents a methodical, reliable, and efficient approach to tasks. It encourages you to stick to routines and remain consistent in your efforts."
     },
-{
-    "name": "Queen of Pentacles",
-    "symbol": "👸🌱",
-    "meanings": [
-        "Nurturing",
-        "Financial security",
-        "Practicality",
-        "Generosity",
-        "Groundedness"
-    ],
-    "description": "The Queen of Pentacles represents a nurturing and grounded energy, encouraging stability, generosity, and practical support for yourself and others."
-},
-
+    {
+        "name": "Queen of Pentacles",
+        "symbol": "👸🌱",
+        "meanings": [
+            "Nurturing",
+            "Financial security",
+            "Practicality",
+            "Generosity",
+            "Groundedness"
+        ],
+        "description": "The Queen of Pentacles represents a nurturing and grounded energy, encouraging stability, generosity, and practical support for yourself and others."
+    },
     {
         "name": "King of Pentacles",
         "symbol": "🤴🌱",
