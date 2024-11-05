@@ -1,8 +1,12 @@
-# Tarot.js
+# [Tarot.js](https://github.com/MarketingPipeline/Tarot.js/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/MarketingPipeline/Tarot.js/blob/main/LICENSE) [![Current version](https://img.shields.io/github/package-json/v/MarketingPipeline/Tarot.js.svg?style=flat)](https://github.com/MarketingPipeline/Tarot.js/releases)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/MarketingPipeline/Tarot.js/blob/main/README.md#contributing-)
+
+
+**[User Showcase](https://github.com/MarketingPipeline/Tarot.js/blob/gh-pages/showcase.md)** | **[Live Demo](https://marketingpipeline.github.io/Tarot.js/demo)** | **[Getting Started](https://github.com/MarketingPipeline/Tarot.js/wiki/1.-Getting-Started)** | **[Documentation](https://github.com/MarketingPipeline/Tarot.js/wiki)** | **[GitHub](https://github.com/MarketingPipeline/Tarot.js/)**
 
 **Tarot.js** is a powerful and customizable JavaScript library for creating and managing Tarot card decks, custom spreads, and readings. Whether you're a Tarot enthusiast or a developer looking to integrate Tarot readings into your application, Tarot.js offers a flexible toolkit to enhance your experience.
 
-## Features
+
+## Features <img height="20px" src="https://user-images.githubusercontent.com/86180097/196882869-d38fe649-8e33-44fe-ae91-b1f9cd5f1c3e.png">
 
 - **Deck Management**: Easily draw, shuffle, and get details about your Tarot deck.
 - **Custom Spreads**: Create and manage unique Tarot spreads tailored to your needs.
@@ -206,11 +210,16 @@ Here’s the corrected and standardized Markdown format:
 
 - **Description**: Retrieves information about the current deck, including the number of cards and card details. 
 
+## Contributing [![GitHub contributors](https://badgen.net/github/contributors/MarketingPipeline/Tarot.js)](https://github.com/MarketingPipeline/Tarot.js/graphs/contributors/)
 
-## Contributing
+Contributions are welcome! Feel free to submit issues, suggest features, or create pull requests to improve Tarot.js.
 
-We welcome contributions! Feel free to submit issues, suggest features, or create pull requests to improve Tarot.js.
+See also the list of
+[contributors](https://github.com/MarketingPipeline/Tarot.js/graphs/contributors) who
+participate in this project.
 
-## License
+## License   [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/MarketingPipeline/Tarot.js/blob/main/LICENSE)
 
-Tarot.js is licensed under the MIT License.
+This project is licensed under the MIT License - see the
+[LICENSE](https://github.com/MarketingPipeline/Tarot.js/blob/main/LICENSE) file for
+details.
