@@ -22,7 +22,9 @@ import Tarot from "https://esm.sh/gh/MarketingPip/tarot.js";
 // Load a existing tarot deck via ES6 assert import or via fetch etc... 
 import englishDeck from "https://esm.sh/gh/MarketingPip/tarot.js/decks/english.json" assert { type: "json" }; 
 
-const tarot = new Tarot();
+// Initialize a Tarot instance and deck
+const tarot = new Tarot.Tarot();
+tarot.initializeDeck(englishDeck);
 
 // Access current deck and spread information
 console.log(tarot.getDeckInfo());
@@ -76,7 +78,7 @@ Here’s a quick guide to get started with Tarot.js:
 Initialize your deck with an array of card objects:
 
 ```javascript
-const Tarot = require('tarot.js');
+import Tarot from "https://esm.sh/gh/MarketingPip/tarot.js";
 const tarot = new Tarot();
 
 const deck = tarot.initializeDeck([
@@ -96,6 +98,8 @@ tarot.addSpread('Three-Card Spread', {
   description: 'Provides insights into past, present, and future aspects.',
 });
 ```
+
+**Note**: "Cards" in your deck must be same length or greater then your positions in your spread.
 
 ### 3. Perform a Reading
 
@@ -125,14 +129,18 @@ const spreads = tarot.listSpreads();
 console.log(spreads); // Outputs: ['Three-Card Spread']
 ```
 
+Here’s the corrected and standardized Markdown format:
+
 ## API Reference
 
 ### `initializeDeck(cards)`
 
 - **Description**: Initializes the deck with a provided array of card objects.
 - **Parameters**:
-  - `cards` (Array<Object>): Array of Tarot cards, each with properties like `name` and `meaning`.
+  - `cards` (Array<Object>): Array of Tarot `"cards"`, each with properties like `name` and `meaning`.
 - **Returns**: Array of initialized cards.
+
+---
 
 ### `addSpread(name, options)`
 
@@ -144,6 +152,8 @@ console.log(spreads); // Outputs: ['Three-Card Spread']
     - `description` (string, optional): Brief description of the spread.
 - **Returns**: The configured spread object.
 
+---
+
 ### `doReading(spreadName)`
 
 - **Description**: Draws cards according to the specified spread.
@@ -151,13 +161,48 @@ console.log(spreads); // Outputs: ['Three-Card Spread']
   - `spreadName` (string): Name of the spread to use for the reading.
 - **Returns**: Array of objects with each position and corresponding drawn card.
 
+---
+
 ### `shuffleDeck()`
 
 - **Description**: Shuffles the deck in place.
 
+---
+
+### `removeSpread(name)`
+
+- **Description**: Removes a spread by name.
+
+---
+
+### `getSpreadInfo(name)`
+
+- **Description**: Retrieves information about a specific spread.
+
+---
+
+### `listSpreads()`
+
+- **Description**: Lists all available custom spreads by name.
+
+---
+
+### `drawCards(count)`
+
+- **Description**: Draws a specified number of cards from the deck.
+
+---
+
+### `getCurrentSpread()`
+
+- **Description**: Retrieves the current spread from the most recent reading.
+
+---
+
 ### `getDeckInfo()`
 
-- **Description**: Returns information about the deck, including card count and card details.
+- **Description**: Retrieves information about the current deck, including the number of cards and card details. 
+
 
 ## Contributing
 
