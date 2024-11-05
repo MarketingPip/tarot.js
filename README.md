@@ -25,16 +25,19 @@ import englishDeck from "https://esm.sh/gh/MarketingPip/tarot.js/decks/english.j
 
 const tarot = new Tarot();
 
-tarot.initializeDeck(englishDeck);
+// Access current deck and spread information
+console.log(tarot.getDeckInfo());
 
-tarot.addSpread("simple", {
-  positions: ["Past", "Present", "Future"],
-  description: "Basic three-card spread"
+// Add a spread (e.g., Past, Present, Future)
+tarot.addSpread('Three-Card Spread', {
+  positions: ['Past', 'Present', 'Future'],
+  description: 'Insight into past, present, and future aspects.'
 });
 
-console.log(tarot.doReading("simple"));
+// Perform a reading using the spread
+console.log(tarot.doReading("Three-Card Spread"));
 
-// Make your own "decks"
+// Make your own deck
 const your_own_custom_deck = tarot.initializeDeck([
   {
     name: "The Fool",
@@ -47,7 +50,7 @@ const your_own_custom_deck = tarot.initializeDeck([
     whatever_values_you_want: ["dope"]
   }
   /* Add more card objects as needed. 
-     Note: Objects must match positions in your spread.
+     Note: Objects must be same length or greater as your positions in your spread.
    */
 ]);
 
@@ -57,7 +60,10 @@ tarot.addSpread("shakespeare", {
   description: "Random example spread"
 });
 
-console.log(tarot.doReading("shakespeare")); 
+console.log(tarot.doReading("shakespeare"));
+
+// View the most recent spread and cards drawn
+console.log(tarot.getCurrentSpread());
 ```
 
 For more advanced usage you can find the Tarot.js documentation [here](https://github.com/MarketingPipeline/Tarot.js/wiki).  
