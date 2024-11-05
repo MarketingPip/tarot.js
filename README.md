@@ -19,7 +19,6 @@ How to use **_Tarot.js_**:
 
 ```javascript
 import Tarot from "https://esm.sh/gh/MarketingPip/tarot.js";
-
 // Load a existing tarot deck via ES6 assert import or via fetch etc... 
 import englishDeck from "https://esm.sh/gh/MarketingPip/tarot.js/decks/english.json" assert { type: "json" }; 
 
