@@ -1,6 +1,7 @@
 {
   "name": "@MarketingPipeline/IPTV-Parser.js",
   "version": "1.0.0",
+  "type": "module",
   "description": "A pure vanilla JavaScript library for EASILY parsing M3U / IPTV",
   "license": "MIT",
   "main": "./dist/tarot.min.js",
