@@ -3,8 +3,7 @@ Note / step for cutting release -
 update package.json FIRST with version - to keep updated version in license.
 THEN create build.
 */ 
-import packageData from '../package.json' assert { type: 'json' };
-
+const packageData = require('../package.json');
 
 const REPONAME = `Emoji-Fallback.js`;
 
@@ -15,8 +14,6 @@ const LICENSE = `/**!
  * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/${REPONAME}/
  */`;
 
-const FILENAME = "tarot"; // used for output file name
+const packageCONFIG = {LICENSE, FILENAME:"tarot"};
 
-const packageCONFIG = {LICENSE,FILENAME};
-
-export default packageCONFIG;
+module.exports = packageCONFIG
