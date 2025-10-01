@@ -13,7 +13,7 @@
     "url": "https://github.com/MarketingPipeline/IPTV-Parser.js.git"
   },
   "scripts": {
-    "build": "webpack --config ./src/webpack.config.babel.js"
+    "build": "webpack --config ./src/webpack.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.24.8",
