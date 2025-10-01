@@ -207,5 +207,5 @@ var Tarot = /*#__PURE__*/function () {
     }
   }]);
 }();
-var __webpack_exports__Tarot = __webpack_exports__.t;
+const __webpack_exports__Tarot = __webpack_exports__.t;
 export { __webpack_exports__Tarot as Tarot };
