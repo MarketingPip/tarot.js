@@ -1,7 +1,7 @@
 // Polyfills support for async functions and generators in older browsers.
 // Babel transpiles async/await into generator functions that rely on regeneratorRuntime.
 // Without this, code using async/await would throw ReferenceError in browsers like IE11.
-import 'regenerator-runtime/runtime.js';
+// import 'regenerator-runtime/runtime.js';
 
 export class Tarot {
   constructor() {
