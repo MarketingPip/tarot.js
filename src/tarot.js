@@ -75,7 +75,7 @@ const validateNonEmptyArray = (arr, name) => {
 /**
  * Class representing a Tarot deck and reading system
  */
-export class Tarot {
+class Tarot {
   /**
    * Create a Tarot instance
    */
@@ -256,3 +256,6 @@ export class Tarot {
     };
   }
 }
+
+// Export as default
+export default Tarot;
